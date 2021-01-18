@@ -137,11 +137,12 @@ if normalization_enable:
 print(testset)
 #predict the label
 label = []
-#for i in range(len(testset)-1):
-#	label[i] = predict(model, testset[0:3][i]) #predicted values array
-#	print('Data=%s, Predicted: %s' % (testset[0:3][i], label[i]))
+for i in range(len(testset)):
+	label.append(predict(model, testset[i])) #predicted values array
+	print('Data=%s, Predicted: %s' % (testset[i], label[i]))
 
-label_true = testset[:][5] #true reference values array
-
+label_true = [val[4] for val in testset ] #true reference values array
+print(label_true)
 #Calculates the accuracy of the model
+
 print(accuracy_score(label_true, label,normalize =True)*100)
