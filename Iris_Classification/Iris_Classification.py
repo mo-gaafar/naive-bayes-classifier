@@ -118,7 +118,7 @@ str_column_to_int(dataset, len(dataset[0])-1)
 #Normalise dataset
 if normalization_enable:
 	normalise(dataset)
-print(dataset)
+#print(dataset)
 # fit model
 model = summarize_by_class(dataset)
 
@@ -134,15 +134,15 @@ str_column_to_int(testset, len(testset[0])-1)
 if normalization_enable:
 	normalise(testset)
 
-print(testset)
+#print(testset)
 #predict the label
 label = []
 for i in range(len(testset)):
 	label.append(predict(model, testset[i])) #predicted values array
-	print('Data=%s, Predicted: %s' % (testset[i], label[i]))
+	#print('Data=%s, Predicted: %s' % (testset[i], label[i]))
 
 label_true = [val[4] for val in testset ] #true reference values array
-print(label_true)
+#print(label_true)
 #Calculates the accuracy of the model
 
-print(accuracy_score(label_true, label,normalize =True)*100)
+print('Data accuracy score:',accuracy_score(label_true, label,normalize =True)*100,'%')
