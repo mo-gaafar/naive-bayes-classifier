@@ -5,7 +5,7 @@ from math import exp
 from math import pi
 from sklearn.metrics import accuracy_score
 import numpy as np
-
+import time
 # Load a CSV file
 def load_csv(filename):
 	dataset = list()
@@ -105,7 +105,7 @@ def predict(summaries, row):
 	return best_label
 
 #Change this boolean to turn normalization on or off
-normalization_enable = False
+normalization_enable = True
 
 # Make a prediction with Naive Bayes on Iris Dataset
 filename = 'training.csv'
@@ -120,8 +120,10 @@ if normalization_enable:
 	normalise(dataset)
 #print(dataset)
 # fit model
+start = time.time()
 model = summarize_by_class(dataset)
-
+end = time.time()
+print('Model fitting time', end-start)
 #loading the testing dataset
 filename2 = 'testing.csv'
 testset = load_csv(filename2)
