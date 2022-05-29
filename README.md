@@ -1,3 +1,3 @@
-# Naive_Bayes_Classifier
+# Naive Bayes Classifier
 
-This was a task in the IBME Course taken on campus
+One of my first machine learning tasks ever done
